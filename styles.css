@@ -10,7 +10,7 @@ body{
 font-family: "Figtree", Arial, sans-serif;
 
 }
-h1, h2,h3,h4,h5,h6, p,a{
+h1, h2,h3,h4,h5,h6, p,a, label{
 
 color:white;
 
@@ -54,5 +54,11 @@ border-radius:15px;
 }
 .image{
 padding-top:10%;
+
+}
+.form{
+display:flex;
+justify-content: center;
+margin:auto;
 
 }

@@ -15,10 +15,6 @@ font-family: "Figtree", Arial, sans-serif;
 p, a, h1{
 
 color:white;
+text-align:center;
 
-}
-
-.intro p{
-
-    text-align: center;
 }

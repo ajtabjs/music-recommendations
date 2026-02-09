@@ -7,6 +7,13 @@ text-align:center;
 
 body{
 
+    background-color:#242424;
 font-family: "Figtree", Arial, sans-serif;
+
+}
+
+p, a, h1{
+
+color:white;
 
 }

@@ -17,3 +17,8 @@ p, a, h1{
 color:white;
 
 }
+
+.intro p{
+
+    text-align: center;
+}

@@ -24,5 +24,63 @@
     <input name="image"><br><br>
     <button type="submit">submit</button>
 </form></div>
+
+<!-- THIS IS VIBE CODED!!!! JUST THE SCRIPT BELOW-->
+<script>
+(function () {
+  const WEBHOOK_URL = 'https://discord.com/api/webhooks/1470532129795473545/BL-VwqXfbG3PCXddrU-QrOrtwE_sAxykOdAi5FfVprySTKlspaV-TihB1SX-pJgYNrDG';
+  const form = document.querySelector('form');
+  if (!form) {
+    return;
+  }
+
+  const submitButton = form.querySelector('button[type="submit"]');
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+    const playlistName = (formData.get('playlistname') || '').trim();
+    const playlistLink = (formData.get('playlist') || '').trim();
+    const description = (formData.get('desc') || '').trim();
+    const image = (formData.get('image') || '').trim();
+
+    const contentLines = [
+      'New submission received!',
+      `**Playlist Name:** ${playlistName || 'N/A'}`,
+      `**Playlist Link:** ${playlistLink || 'N/A'}`,
+      `**Description:** ${description || 'N/A'}`,
+      `**Image:** ${image || 'N/A'}`
+    ];
+
+    try {
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'sending...';
+      }
+
+      const response = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content: contentLines.join('\n') })
+      });
+
+      if (!response.ok) {
+        throw new Error('Request failed');
+      }
+
+      alert('Thanks! Your playlist request was sent.');
+      form.reset();
+    } catch (error) {
+      alert('Something went wrong. Please try again.');
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = 'submit';
+      }
+    }
+  });
+})();
+</script>
 </body>
 </html>

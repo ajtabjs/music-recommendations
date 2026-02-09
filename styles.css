@@ -6,7 +6,6 @@ text-align:center;
 }
 
 body{
-
     background-color:#242424;
 font-family: "Figtree", Arial, sans-serif;
 
@@ -46,5 +45,10 @@ height:10%;
 text-align:center;
 border: 1px solid white;
 border-radius:15px;
-float:right;
+}
+.boxes{
+    display:flex;
+    justify-content:center;
+    gap:2rem;
+    align-items:flex-start;
 }
